@@ -1,0 +1,24 @@
+mysql -u root -p
+source db/schema.sql
+quit
+
+npm run seed  
+
+npm start
+
+insomnia 
+
+
+ the info to build the model has to be the same one that i can find in seeds, whilst routtes with get request allows after npm start to verify the database in insomnia.
+ In model there is the structure and in seeds i can find the detatils of this structure 
+
+
+
+ in model/index
+ ### Associations
+
+You'll need to execute association methods on your Sequelize models to create the following relationships between them:
+
+* `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
+
+* `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
