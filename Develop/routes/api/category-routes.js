@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
 });
 
 
-// find one category by its `id` value
 
+// FIND ONE category by its `id` value
 router.get('/:id',async (req, res) => {
   try {
     const CategoryData = await Category.findByPk(req.params.id, {
@@ -29,7 +29,7 @@ router.get('/:id',async (req, res) => {
     });
 
     if (!CategoryData) {
-      res.status(404).json({ message: 'No library card found with that id!' });
+      res.status(404).json({ message: 'Category not found, plese enter another id' });
       return;
     }
 
@@ -40,7 +40,7 @@ router.get('/:id',async (req, res) => {
 });
 
 
-// create a new category
+// CREATE a new category
 router.post('/',async (req, res) => {
   try {
     const CategoryData = await Category.create({
@@ -54,7 +54,7 @@ router.post('/',async (req, res) => {
 
 
 
-// update a category by its `id` value
+// UPDATE a category by its `id` value
 router.put('/:id', async (req, res) => {
   try {
     const CategoryData = await Category.update(req.body,{
@@ -64,7 +64,7 @@ router.put('/:id', async (req, res) => {
     });
 
     if (!CategoryData) {
-      res.status(404).json({ message: 'No category found with that id!' });
+      res.status(404).json({ message: 'Category not found, plese enter another id' });
       return;
     }
 
@@ -76,7 +76,7 @@ router.put('/:id', async (req, res) => {
 
 
 
-// delete a category by its `id` value
+// DELETE a category by its `id` value
 router.delete('/:id',async (req, res) => {
   try {
     const CategoryData = await Category.destroy({
@@ -86,7 +86,7 @@ router.delete('/:id',async (req, res) => {
     });
 
     if (!CategoryData) {
-      res.status(404).json({ message: 'No category found with that id!' });
+      res.status(404).json({ message: 'Category not found, plese enter another id' });
       return;
     }
 
